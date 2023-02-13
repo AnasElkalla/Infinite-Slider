@@ -101,4 +101,5 @@ div img {
   .container {
     height: 50%;
   }
+  span{cursor:default}
 }
