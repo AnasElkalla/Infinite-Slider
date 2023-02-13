@@ -64,6 +64,7 @@ const oneR = () => {
     // {one:[-100,0],two:[0,0],three:[100,0]}
     active.classList.remove("active");
     two.classList.add("active");
+    activeDiv = 2;
     active = document.querySelector(".active");
   }, 200);
 };
@@ -75,6 +76,7 @@ const twoR = () => {
     // {one:[-100,200],two:[0,-100],three:[100,-100]}
     active.classList.remove("active");
     three.classList.add("active");
+    activeDiv = 3;
     active = document.querySelector(".active");
   }, 200);
 };
@@ -87,6 +89,7 @@ const threeR = () => {
     // {one:[-100,100],two:[0,-100],three:[100,-200]}
     active.classList.remove("active");
     one.classList.add("active");
+    activeDiv = 1;
     active = document.querySelector(".active");
     two.style.transform = "translateX(100vw)";
   }, 200);
@@ -105,11 +108,6 @@ const slider = () => {
   } else if (activeDiv === 3) {
     threeR();
   }
-  if (activeDiv > 0 && activeDiv < 3) {
-    activeDiv++;
-  } else if (activeDiv === 3) {
-    activeDiv = 1;
-  }
 };
 let auto = setInterval(slider, 8000);
 
@@ -120,13 +118,10 @@ right.addEventListener("click", function (e) {
   getRect();
   if (active.classList.contains("two") && twoRect.left === 0) {
     twoR();
-    activeDiv = 3;
   } else if (active.classList.contains("three") && threeRect.left === 0) {
     threeR();
-    activeDiv = 1;
   } else if (active.classList.contains("one") && oneRect.left === 0) {
     oneR();
-    activeDiv = 2;
   }
   return (auto = setInterval(slider, 8000));
 });
