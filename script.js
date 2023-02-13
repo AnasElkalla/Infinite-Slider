@@ -65,7 +65,7 @@ const oneR = () => {
     active.classList.remove("active");
     two.classList.add("active");
     active = document.querySelector(".active");
-  }, 100);
+  }, 200);
 };
 const twoR = () => {
   changeSrc(two, "right");
@@ -76,7 +76,7 @@ const twoR = () => {
     active.classList.remove("active");
     three.classList.add("active");
     active = document.querySelector(".active");
-  }, 100);
+  }, 200);
 };
 const threeR = () => {
   changeSrc(three, "right");
@@ -89,7 +89,7 @@ const threeR = () => {
     one.classList.add("active");
     active = document.querySelector(".active");
     two.style.transform = "translateX(100vw)";
-  }, 100);
+  }, 200);
 };
 
 let activeDiv = 2;
