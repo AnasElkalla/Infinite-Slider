@@ -114,11 +114,15 @@ const slider = () => {
   }
 };
 let auto;
-let autoOn=true;
-document.addEventListener("load",()=>{auto = setInterval(slider, 6000)});
+let autoOn = true;
+window.addEventListener("load", () => {
+  auto = setInterval(slider, 6000);
+});
 document.addEventListener("mouseenter", () => {
-  if autoOn=false{auto = setInterval(slider, 6000);autoOn=true}
-  
+  if (autoOn === false) {
+    auto = setInterval(slider, 6000);
+    autoOn = true;
+  }
 });
 right.addEventListener("click", function (e) {
   clearInterval(auto);
@@ -176,6 +180,6 @@ left.addEventListener("click", function (e) {
   return (auto = setInterval(slider, 6000));
 });
 document.addEventListener("mouseleave", () => {
-  autoOn=false;
+  autoOn = false;
   clearInterval(auto);
 });
