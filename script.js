@@ -1,3 +1,5 @@
+"use strict";
+
 const left = document.querySelector("span.left");
 const right = document.querySelector("span.right");
 const divs = document.getElementsByClassName("box");
@@ -41,26 +43,32 @@ const changeSrc = (div, direction) => {
   // console.log(i);
   if (l === direction) {
     i === "1" ? (i = images + 1) : i;
-    nextDiv.querySelector("img").src = `images/${--i}.jpg`;
+    nextDiv.querySelector(
+      "img"
+    ).src = `https://raw.githubusercontent.com/AnasElkalla/Infinite-Slider/main/images/${--i}.jpg`;
     // console.log(nextDiv.querySelector("img").src, i);
   } else if (r === direction) {
     +i === images ? (i = 0) : i;
-    nextDiv.querySelector("img").src = `images/${++i}.jpg`;
+    nextDiv.querySelector(
+      "img"
+    ).src = `https://raw.githubusercontent.com/AnasElkalla/Infinite-Slider/main/images/${++i}.jpg`;
     // console.log(nextDiv.querySelector("img").src);
   }
   // div.querySelector("img").src = `images/${i}.jpg`;
 };
 Array.from(divs).forEach((div, i) => {
-  div.querySelector("img").src = `images/${i + 1}.jpg`;
+  div.querySelector(
+    "img"
+  ).src = `https://raw.githubusercontent.com/AnasElkalla/Infinite-Slider/main/images/${
+    i + 1
+  }.jpg`;
 });
 
 const oneR = () => {
   changeSrc(one, "right");
   setTimeout(() => {
-    active.style.transform =
-      three.style.transform =
-      two.style.transform =
-        "translateX(0)";
+    active.style.transform = three.style.transform = two.style.transform =
+      "translateX(0)";
     // {one:[-100,0],two:[0,0],three:[100,0]}
     active.classList.remove("active");
     two.classList.add("active");
@@ -109,8 +117,10 @@ const slider = () => {
     threeR();
   }
 };
-let auto = setInterval(slider, 6000);
-
+let auto;
+document.addEventListener("mouseenter", () => {
+  auto = setInterval(slider, 6000);
+});
 right.addEventListener("click", function (e) {
   clearInterval(auto);
 
@@ -148,10 +158,8 @@ left.addEventListener("click", function (e) {
 
     setTimeout(() => {
       two.style.zIndex = three.style.zIndex = "9 !important";
-      three.style.transform =
-        two.style.transform =
-        one.style.transform =
-          "translateX(0)";
+      three.style.transform = two.style.transform = one.style.transform =
+        "translateX(0)";
       // {one:[-100,0],two:[0,-0],three:[100,0]}
       active.classList.remove("active");
       two.classList.add("active");
@@ -174,4 +182,7 @@ left.addEventListener("click", function (e) {
     }, 50);
   }
   return (auto = setInterval(slider, 6000));
+});
+document.addEventListener("mouseleave", () => {
+  clearInterval(auto);
 });
