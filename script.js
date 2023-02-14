@@ -114,8 +114,11 @@ const slider = () => {
   }
 };
 let auto;
+let autoOn=true;
+document.addEventListener("load",()=>{auto = setInterval(slider, 6000)});
 document.addEventListener("mouseenter", () => {
-  auto = setInterval(slider, 6000);
+  if autoOn=false{auto = setInterval(slider, 6000);autoOn=true}
+  
 });
 right.addEventListener("click", function (e) {
   clearInterval(auto);
@@ -173,5 +176,6 @@ left.addEventListener("click", function (e) {
   return (auto = setInterval(slider, 6000));
 });
 document.addEventListener("mouseleave", () => {
+  autoOn=false;
   clearInterval(auto);
 });
