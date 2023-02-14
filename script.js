@@ -109,7 +109,7 @@ const slider = () => {
     threeR();
   }
 };
-let auto = setInterval(slider, 8000);
+let auto = setInterval(slider, 6000);
 
 right.addEventListener("click", function (e) {
   clearInterval(auto);
@@ -123,7 +123,7 @@ right.addEventListener("click", function (e) {
   } else if (active.classList.contains("one") && oneRect.left === 0) {
     oneR();
   }
-  return (auto = setInterval(slider, 8000));
+  return (auto = setInterval(slider, 6000));
 });
 left.addEventListener("click", function (e) {
   clearInterval(auto);
@@ -173,5 +173,5 @@ left.addEventListener("click", function (e) {
       active = document.querySelector(".active");
     }, 50);
   }
-  return (auto = setInterval(slider, 5000));
+  return (auto = setInterval(slider, 6000));
 });
