@@ -65,42 +65,38 @@ Array.from(divs).forEach((div, i) => {
 });
 
 const oneR = () => {
-  changeSrc(one, "right");
-  setTimeout(() => {
-    active.style.transform = three.style.transform = two.style.transform =
+  active.style.transform =
+    three.style.transform =
+    two.style.transform =
       "translateX(0)";
-    // {one:[-100,0],two:[0,0],three:[100,0]}
-    active.classList.remove("active");
-    two.classList.add("active");
-    activeDiv = 2;
-    active = document.querySelector(".active");
-  }, 200);
+  // {one:[-100,0],two:[0,0],three:[100,0]}
+  active.classList.remove("active");
+  two.classList.add("active");
+  changeSrc(two, "right");
+  activeDiv = 2;
+  active = document.querySelector(".active");
 };
 const twoR = () => {
-  changeSrc(two, "right");
-  setTimeout(() => {
-    active.style.transform = three.style.transform = "translateX(-100vw)";
-    one.style.transform = "translateX(200vw)";
-    // {one:[-100,200],two:[0,-100],three:[100,-100]}
-    active.classList.remove("active");
-    three.classList.add("active");
-    activeDiv = 3;
-    active = document.querySelector(".active");
-  }, 200);
+  active.style.transform = three.style.transform = "translateX(-100vw)";
+  one.style.transform = "translateX(200vw)";
+  // {one:[-100,200],two:[0,-100],three:[100,-100]}
+  active.classList.remove("active");
+  three.classList.add("active");
+  changeSrc(three, "right");
+  activeDiv = 3;
+  active = document.querySelector(".active");
 };
 const threeR = () => {
-  changeSrc(three, "right");
-  setTimeout(() => {
-    active.style.transform = "translateX(-200vw)";
-    two.style.transform = "translateX(-100vw)";
-    one.style.transform = "translateX(100vw)";
-    // {one:[-100,100],two:[0,-100],three:[100,-200]}
-    active.classList.remove("active");
-    one.classList.add("active");
-    activeDiv = 1;
-    active = document.querySelector(".active");
-    two.style.transform = "translateX(100vw)";
-  }, 200);
+  active.style.transform = "translateX(-200vw)";
+  two.style.transform = "translateX(-100vw)";
+  one.style.transform = "translateX(100vw)";
+  // {one:[-100,100],two:[0,-100],three:[100,-200]}
+  active.classList.remove("active");
+  one.classList.add("active");
+  changeSrc(one, "right");
+  activeDiv = 1;
+  active = document.querySelector(".active");
+  two.style.transform = "translateX(100vw)";
 };
 
 let activeDiv = 2;
@@ -141,45 +137,38 @@ left.addEventListener("click", function (e) {
   document.body.style.setProperty("--origin", "left");
   getRect();
   if (active.classList.contains("two") && twoRect.left === 0) {
-    changeSrc(two, "left");
-
-    setTimeout(() => {
-      two.style.zIndex = three.style.zIndex = "9 !important";
-      two.style.transform = one.style.transform = "translateX(100vw)";
-      three.style.transform = "translateX(-200vw)";
-      // {one:[-100,100],two:[0,100],three:[100,-200]}
-      active.classList.remove("active");
-      one.classList.add("active");
-      activeDiv = 1;
-      active = document.querySelector(".active");
-    }, 50);
-  } else if (active.classList.contains("three") && threeRect.left === 0) {
-    changeSrc(three, "left");
-
-    setTimeout(() => {
-      two.style.zIndex = three.style.zIndex = "9 !important";
-      three.style.transform = two.style.transform = one.style.transform =
-        "translateX(0)";
-      // {one:[-100,0],two:[0,-0],three:[100,0]}
-      active.classList.remove("active");
-      two.classList.add("active");
-      activeDiv = 2;
-      active = document.querySelector(".active");
-    }, 50);
-  } else if (active.classList.contains("one") && oneRect.left === 0) {
+    two.style.zIndex = three.style.zIndex = "9 !important";
+    two.style.transform = one.style.transform = "translateX(100vw)";
+    three.style.transform = "translateX(-200vw)";
+    // {one:[-100,100],two:[0,100],three:[100,-200]}
+    active.classList.remove("active");
+    one.classList.add("active");
     changeSrc(one, "left");
-
-    setTimeout(() => {
-      one.style.zIndex = three.style.zIndex = "9 !important";
-      one.style.transform = "translateX(200vw)";
-      two.style.transform = "translateX(-100vw)";
-      three.style.transform = "translateX(-100vw)";
-      // {one:[-100,200],two:[0,-100],three:[100,-100]}
-      active.classList.remove("active");
-      three.classList.add("active");
-      activeDiv = 3;
-      active = document.querySelector(".active");
-    }, 50);
+    activeDiv = 1;
+    active = document.querySelector(".active");
+  } else if (active.classList.contains("three") && threeRect.left === 0) {
+    two.style.zIndex = three.style.zIndex = "9 !important";
+    three.style.transform =
+      two.style.transform =
+      one.style.transform =
+        "translateX(0)";
+    // {one:[-100,0],two:[0,-0],three:[100,0]}
+    active.classList.remove("active");
+    two.classList.add("active");
+    changeSrc(two, "left");
+    activeDiv = 2;
+    active = document.querySelector(".active");
+  } else if (active.classList.contains("one") && oneRect.left === 0) {
+    one.style.zIndex = three.style.zIndex = "9 !important";
+    one.style.transform = "translateX(200vw)";
+    two.style.transform = "translateX(-100vw)";
+    three.style.transform = "translateX(-100vw)";
+    // {one:[-100,200],two:[0,-100],three:[100,-100]}
+    active.classList.remove("active");
+    three.classList.add("active");
+    changeSrc(three, "left");
+    activeDiv = 3;
+    active = document.querySelector(".active");
   }
   return (auto = setInterval(slider, 6000));
 });
