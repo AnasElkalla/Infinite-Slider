@@ -39,7 +39,9 @@ const next = (div, direction) => {
     }
   }
 };
-const changer= function (div, direction) {const nextDiv = next(div, direction);
+const changer= function (div, direction) {} 
+const changeSrc = (div, direction) => {
+const nextDiv = next(div, direction);
 let i = div.querySelector("img").getAttribute("src").match(/\d+/)[0];
   // console.log(i);
   if (l === direction) {
@@ -54,13 +56,8 @@ let i = div.querySelector("img").getAttribute("src").match(/\d+/)[0];
       "img"
     ).src = `https://raw.githubusercontent.com/AnasElkalla/Infinite-Slider/main/images/${++i}.jpg`;
     // console.log(nextDiv.querySelector("img").src);
-  }} 
-const changeSrc = (div, direction) => {
-
-  if (start && activeDiv===2) {return} 
-  else if(start && (activeDiv===1||activeDiv===3)) {start=false;changer(div, direction) }
-  else{
-  changer(div, direction) ;} 
+  }
+  
   
   // div.querySelector("img").src = `images/${i}.jpg`;} 
 };
