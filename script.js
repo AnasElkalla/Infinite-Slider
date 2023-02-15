@@ -12,6 +12,7 @@ const divRect = divs[0].getBoundingClientRect();
 let oneRect, twoRect, threeRect;
 const l = "left";
 const r = "right";
+let start=true;
 let images = 20;
 const getRect = () => {
   oneRect = one.getBoundingClientRect();
@@ -37,9 +38,7 @@ const next = (div, direction) => {
     }
   }
 };
-const changeSrc = (div, direction) => {
-  let i = div.querySelector("img").getAttribute("src").match(/\d+/)[0];
-  const nextDiv = next(div, direction);
+const changer=(div, direction) {const nextDiv = next(div, direction);
   // console.log(i);
   if (l === direction) {
     i === "1" ? (i = images + 1) : i;
@@ -53,8 +52,15 @@ const changeSrc = (div, direction) => {
       "img"
     ).src = `https://raw.githubusercontent.com/AnasElkalla/Infinite-Slider/main/images/${++i}.jpg`;
     // console.log(nextDiv.querySelector("img").src);
-  }
-  // div.querySelector("img").src = `images/${i}.jpg`;
+  }} 
+const changeSrc = (div, direction) => {
+let i = div.querySelector("img").getAttribute("src").match(/\d+/)[0];
+  if (start && i==="1") {return} 
+  else if(start && i>1){start=false;changer(div, direction) }
+  else{
+  changer(div, direction) ;
+  
+  // div.querySelector("img").src = `images/${i}.jpg`;} 
 };
 
 
