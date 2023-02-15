@@ -55,8 +55,8 @@ const changer= function (div, direction) {const nextDiv = next(div, direction);
   }} 
 const changeSrc = (div, direction) => {
 let i = div.querySelector("img").getAttribute("src").match(/\d+/)[0];
-  if (start && i==="1") {return} 
-  else if(start && i>1){start=false;changer(div, direction) }
+  if (start && i==="2") {return} 
+  else if(start && (i==="1"||i==="3"){start=false;changer(div, direction) }
   else{
   changer(div, direction) ;} 
   
