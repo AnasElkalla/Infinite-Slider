@@ -12,6 +12,7 @@ const divRect = divs[0].getBoundingClientRect();
 let oneRect, twoRect, threeRect;
 const l = "left";
 const r = "right";
+let activeDiv = 2;
 let start=true;
 let images = 20;
 const getRect = () => {
@@ -100,7 +101,7 @@ const threeR = () => {
   two.style.transform = "translateX(100vw)";
 };
 
-let activeDiv = 2;
+
 let time;
 const slider = () => {
   // console.log(Date.now() - time);
