@@ -38,7 +38,7 @@ const next = (div, direction) => {
     }
   }
 };
-const changer=(div, direction) {const nextDiv = next(div, direction);
+const changer= function (div, direction) {const nextDiv = next(div, direction);
   // console.log(i);
   if (l === direction) {
     i === "1" ? (i = images + 1) : i;
