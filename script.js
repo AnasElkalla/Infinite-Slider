@@ -56,13 +56,7 @@ const changeSrc = (div, direction) => {
   }
   // div.querySelector("img").src = `images/${i}.jpg`;
 };
-Array.from(divs).forEach((div, i) => {
-  div.querySelector(
-    "img"
-  ).src = `https://raw.githubusercontent.com/AnasElkalla/Infinite-Slider/main/images/${
-    i + 1
-  }.jpg`;
-});
+
 
 const oneR = () => {
   active.style.transform =
@@ -116,6 +110,13 @@ const slider = () => {
 let auto;
 let autoOn = true;
 window.addEventListener("load", () => {
+[...divs].forEach((div, i) => {
+  div.querySelector(
+    "img"
+  ).src = `https://raw.githubusercontent.com/AnasElkalla/Infinite-Slider/main/images/${
+    i + 1
+  }.jpg`;
+});
   auto = setInterval(slider, 6000);
 });
 document.addEventListener("mouseenter", () => {
