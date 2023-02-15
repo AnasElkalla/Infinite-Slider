@@ -39,6 +39,7 @@ const next = (div, direction) => {
   }
 };
 const changer= function (div, direction) {const nextDiv = next(div, direction);
+let i = div.querySelector("img").getAttribute("src").match(/\d+/)[0];
   // console.log(i);
   if (l === direction) {
     i === "1" ? (i = images + 1) : i;
@@ -54,7 +55,7 @@ const changer= function (div, direction) {const nextDiv = next(div, direction);
     // console.log(nextDiv.querySelector("img").src);
   }} 
 const changeSrc = (div, direction) => {
-let i = div.querySelector("img").getAttribute("src").match(/\d+/)[0];
+
   if (start && activeDiv===2) {return} 
   else if(start && (activeDiv===1||activeDiv===3)) {start=false;changer(div, direction) }
   else{
